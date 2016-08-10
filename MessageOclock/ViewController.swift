@@ -10,16 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var eingabeTextField: UITextField!
+    @IBOutlet var datetimeField: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func speichernButtonPress() {
+        
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "dd-MM-yyyy HH:mm"
+        let datestring = dateformatter.stringFromDate(datetimeField.date)
+        print(eingabeTextField.text! + "soll am "  + datestring + " gesendet werden.")
     }
-
 
 }
 
